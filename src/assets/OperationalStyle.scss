@@ -1,0 +1,57 @@
+$midnight-blue: #2c3e50;
+$clouds: #ecf0f1;
+
+.border_style {
+  border: 5px solid $clouds;
+  border-radius: 15px;
+}
+
+.card_container {
+  @extend .border_style;
+  display: flex;
+  flex-direction: column;
+  width: 30vw;
+  min-height: 40vh;
+  background-color: $midnight-blue;
+  color: $clouds;
+  padding: 10px;
+  .header {
+    background-color: transparent;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .list {
+    list-style: none;
+    padding: 6px;
+    .item {
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+  }
+  .add_todo_container {
+    display: flex;
+    input {
+      width: 50%;
+      padding: 6px;
+      border-radius: 5px;
+      border-style: none;
+      margin: 3px;
+    }
+    .add_button {
+      border-style: none;
+      border-radius: 5px;
+      margin: 3px;
+      padding: 6px 10px;
+      width: 50%;
+      background-color: $clouds;
+      color: $midnight-blue;
+      cursor: pointer;
+      &:hover {
+        background-color: $midnight-blue;
+        color: $clouds;
+        border: 1px solid $midnight-blue;
+        border-color: $clouds;
+      }
+    }
+  }
+}

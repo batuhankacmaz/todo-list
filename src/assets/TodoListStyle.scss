@@ -1,0 +1,63 @@
+$midnight-blue: #2c3e50;
+$clouds: #ecf0f1;
+$green: #27ae60;
+$red: #c0392b;
+
+.border_style {
+  border: 5px solid $clouds;
+  border-radius: 15px;
+}
+
+.card_container {
+  @extend .border_style;
+  width: 30vw;
+  min-height: 40vh;
+  background-color: $midnight-blue;
+  color: $clouds;
+  padding: 10px;
+  .header {
+    background-color: transparent;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .list {
+    background-color: transparent;
+    list-style: none;
+    padding: 6px;
+    .item {
+      background-color: transparent;
+      font-size: 18px;
+      margin-bottom: 5px;
+      .item_container {
+        background-color: $clouds;
+        color: $midnight-blue;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 5px;
+        .first_element {
+          display: flex;
+          align-items: center;
+          .check_icon {
+            cursor: pointer;
+            margin-right: 5px;
+            &:hover {
+              background-color: $green;
+              color: $clouds;
+              border-radius: 50%;
+            }
+          }
+        }
+        .remove_icon {
+          cursor: pointer;
+          &:hover {
+            background-color: $red;
+            color: $clouds;
+            border-radius: 50%;
+          }
+        }
+      }
+    }
+  }
+}

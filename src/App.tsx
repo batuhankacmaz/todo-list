@@ -1,6 +1,7 @@
 import React, { useCallback, useRef } from 'react';
 import { useTodos, useAddTodo, useRemoveTodo, TodosProvider } from './useTodos';
-import logo from './logo.svg';
+import Operational from './components/Operational';
+import TodoList from './components/TodoList';
 import './App.scss';
 
 type BoxProps = {
@@ -113,10 +114,11 @@ const AppWrapper = () => (
       style={{
         display: 'grid',
         gridTemplateColumns: '50% 50%',
+        margin: '50px',
       }}
     >
-      <App></App>
-      <JustShowTodos />
+      <Operational />
+      <TodoList />
     </div>
   </TodosProvider>
 );
