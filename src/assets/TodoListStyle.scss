@@ -20,6 +20,12 @@ $red: #c0392b;
     text-align: center;
     margin-bottom: 30px;
   }
+  .filter_container {
+    padding: 6px;
+    border-radius: 5px;
+    border-style: none;
+    margin: 3px;
+  }
   .list {
     background-color: transparent;
     list-style: none;
@@ -28,6 +34,26 @@ $red: #c0392b;
       background-color: transparent;
       font-size: 18px;
       margin-bottom: 5px;
+      .item_container_checked {
+        background-color: $green;
+        color: $clouds;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 5px;
+        .first_element {
+          display: flex;
+          align-items: center;
+          .check_icon {
+            cursor: pointer;
+            background-color: $green;
+            color: $clouds;
+            border-radius: 50%;
+            margin-right: 5px;
+          }
+        }
+      }
       .item_container {
         background-color: $clouds;
         color: $midnight-blue;

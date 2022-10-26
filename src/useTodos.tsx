@@ -7,7 +7,8 @@ import React, {
 
 type ActionType =
   | { type: 'ADD'; text: string }
-  | { type: 'REMOVE'; id: number };
+  | { type: 'REMOVE'; id: number }
+  | { type: 'DONE'; id: number };
 
 interface Todo {
   id: number;
@@ -21,12 +22,14 @@ const TodoContext = createContext<UseTodosManagerResult>({
   todos: [],
   addTodo: () => undefined,
   removeTodo: () => undefined,
+  checkTodo: () => undefined,
 });
 
 function useTodosManager(initialTodos: Todo[]): {
   todos: Todo[];
   addTodo: (text: string) => void;
   removeTodo: (id: number) => void;
+  checkTodo: (id: number) => void;
 } {
   const [todos, dispatch] = useReducer((state: Todo[], action: ActionType) => {
     switch (action.type) {
@@ -41,6 +44,14 @@ function useTodosManager(initialTodos: Todo[]): {
         ];
       case 'REMOVE':
         return state.filter(({ id }) => id !== action.id);
+      case 'DONE': {
+        const item = state.find(({ id }) => id === action.id);
+        console.log('item1', item);
+        if (item) {
+          item.done = true;
+        }
+        return [...state];
+      }
       default:
         throw new Error();
     }
@@ -60,7 +71,14 @@ function useTodosManager(initialTodos: Todo[]): {
     });
   }, []);
 
-  return { todos, addTodo, removeTodo };
+  const checkTodo = useCallback((id: number) => {
+    dispatch({
+      type: 'DONE',
+      id,
+    });
+  }, []);
+
+  return { todos, addTodo, removeTodo, checkTodo };
 }
 
 export const TodosProvider: React.FunctionComponent<{
@@ -85,4 +103,9 @@ export const useAddTodo = (): UseTodosManagerResult['addTodo'] => {
 export const useRemoveTodo = (): UseTodosManagerResult['removeTodo'] => {
   const { removeTodo } = useContext(TodoContext);
   return removeTodo;
+};
+
+export const useCheckTodo = (): UseTodosManagerResult['checkTodo'] => {
+  const { checkTodo } = useContext(TodoContext);
+  return checkTodo;
 };

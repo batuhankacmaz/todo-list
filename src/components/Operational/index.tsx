@@ -81,7 +81,6 @@ function Operational() {
   const removeTodo = useRemoveTodo();
 
   const newTodoRef = useRef<HTMLInputElement>(null);
-
   const onAddTodo = useCallback(() => {
     if (newTodoRef.current) {
       addTodo(newTodoRef.current.value);
