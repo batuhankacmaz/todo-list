@@ -6,7 +6,7 @@ import {
   useAddTodo,
   useRemoveTodo,
   TodosProvider,
-} from '../../useTodos';
+} from '../../context/useTodos';
 import '../../assets/OperationalStyle.scss';
 
 const Heading = ({

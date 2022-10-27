@@ -1,7 +1,7 @@
 import React, { useCallback, useRef, useState, useEffect } from 'react';
 import { BiCheckCircle } from 'react-icons/bi';
 import { CiCircleRemove } from 'react-icons/ci';
-import { useTodos, useRemoveTodo, useCheckTodo } from '../../useTodos';
+import { useTodos, useRemoveTodo, useCheckTodo } from '../../context/useTodos';
 import '../../assets/TodoListStyle.scss';
 
 interface Todo {
